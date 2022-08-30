@@ -22,7 +22,8 @@ func (block *Block) PoW(previousProof int64) int64 {
 
 	for !checkProof {
 		hashOperation := sha256.New()
-		_, err := hashOperation.Write([]byte(string(rune(int64(math.Pow(float64(newProof), 2)) - int64(math.Pow(float64(previousProof), 2))))))
+		hashComplexity := rune(int64(math.Pow(float64(newProof), 2) - math.Pow(float64(previousProof), 2)))
+		_, err := hashOperation.Write([]byte(string(hashComplexity)))
 		if err != nil {
 			panic(err)
 		}
@@ -34,6 +35,8 @@ func (block *Block) PoW(previousProof int64) int64 {
 		} else {
 			newProof++
 		}
+
+		log.Println(newProof)
 	}
 
 	return newProof

@@ -40,7 +40,8 @@ func (chain *Chain) IsChainValid() bool {
 		}
 
 		hashOperation := sha256.New()
-		_, err := hashOperation.Write([]byte(string(rune(int64(math.Pow(float64(block.Proof), 2)) - int64(math.Pow(float64(previousBlock.Proof), 2))))))
+		hashComplexity := rune(int64(math.Pow(float64(block.Proof), 2) - math.Pow(float64(previousBlock.Proof), 2)))
+		_, err := hashOperation.Write([]byte(string(hashComplexity)))
 		if err != nil {
 			panic(err)
 		}
