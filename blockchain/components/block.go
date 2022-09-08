@@ -11,13 +11,13 @@ import (
 type Block struct {
 	Index        int    `json:"Index"`
 	TimeStamp    string `json:"TimeStamp"`
-	Proof        int64  `json:"Proof"`
+	Proof        uint32 `json:"Proof"`
 	PreviousHash string `json:"PreviousHash"`
 }
 
 // Proof of work
-func (block *Block) PoW(previousProof int64) int64 {
-	var newProof int64 = 1
+func (block *Block) PoW(previousProof uint32) uint32 {
+	var newProof uint32 = 1
 	checkProof := false
 
 	for !checkProof {

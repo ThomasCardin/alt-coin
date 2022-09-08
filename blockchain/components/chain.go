@@ -14,7 +14,7 @@ type Chain struct {
 	Chain []Block `json:"Chain"`
 }
 
-func (chain *Chain) CreateBlock(proof int64, previousHash string) Block {
+func (chain *Chain) CreateBlock(proof uint32, previousHash string) Block {
 	block := Block{
 		Index:        len(chain.Chain) + 1,
 		TimeStamp:    string(rune(time.Now().UnixNano())),
