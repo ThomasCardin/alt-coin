@@ -1,9 +1,10 @@
-package components
+package blockchain
 
 import (
 	"crypto/sha256"
 	"encoding/hex"
 	"encoding/json"
+	"fmt"
 	"math"
 	"net/http"
 	"strconv"
@@ -17,7 +18,7 @@ type Chain struct {
 func (chain *Chain) CreateBlock(proof uint32, previousHash string) Block {
 	block := Block{
 		Index:        len(chain.Chain) + 1,
-		TimeStamp:    string(rune(time.Now().UnixNano())),
+		TimeStamp:    fmt.Sprintf("%d", time.Now().UnixNano()),
 		Proof:        proof,
 		PreviousHash: previousHash,
 	}

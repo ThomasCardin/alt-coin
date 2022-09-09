@@ -1,14 +1,14 @@
 package main
 
 import (
-	components "alt-coin/blockchain/components"
+	blockchain "alt-coin/blockchain"
 	"log"
 	"net/http"
 )
 
 func main() {
-	blockchain := components.Chain{
-		Chain: []components.Block{},
+	blockchain := blockchain.Chain{
+		Chain: []blockchain.Block{},
 	}
 	blockchain.CreateBlock(1, "0") // Genesis block
 

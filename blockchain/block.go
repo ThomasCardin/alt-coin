@@ -1,4 +1,4 @@
-package components
+package blockchain
 
 import (
 	"crypto/sha256"
@@ -35,8 +35,6 @@ func (block *Block) PoW(previousProof uint32) uint32 {
 		} else {
 			newProof++
 		}
-
-		log.Println(newProof)
 	}
 
 	return newProof
