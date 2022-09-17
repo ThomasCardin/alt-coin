@@ -1,7 +1,7 @@
 package main
 
 import (
-	blockchain "alt-coin/blockchain"
+	blockchain "alt-coin/pkg/blockchain"
 	"log"
 	"net/http"
 )
